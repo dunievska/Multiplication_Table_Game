@@ -1,2 +1,2 @@
 # Multiplication_Table_Game
-Simple game for kid to learn multiplication
+Simple game for kids to learn multiplication

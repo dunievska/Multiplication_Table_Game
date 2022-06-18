@@ -4,31 +4,34 @@
     <title>Gra do nauki tabliczki mnożenia</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" src="style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <header>
       <p class="instruction">
         Wpisz wynik mnożenia w odpowiednie pole. Sprawdź wynik. Za każdy błąd
-        tracisz jeden punkt. Gra kończy się, gdy stracisz wszystkie punkty. Aby
-        zagrać wciśnij przycik poniżej.
+        tracisz jeden punkt. Gra kończy się, gdy stracisz wszystkie punkty.
       </p>
       <button class="btn play">Start!</button>
     </header>
     <main>
       <section class="multiplication-content">
         <h1>Ile to jest?</h1>
-        <p class="first-number"></p>
-        <p class="multiplication-symbol"></p>
-        <p class="second-number"></p>
-        <p class="text">równa się</p>
+        <p class="numbers">? x ?</p>
+        <p class="text">to</p>
         <input type="number" class="answer" />
         <button class="btn check">Sprawdź!</button>
       </section>
       <section class="info-content">
         <p class="message">Wpisz odpowiedź...</p>
-        <p class="label-score">💯 Twój wynik: <span class="score"></span></p>
+        <p class="label-score">💯 Twój wynik:<span class="score"></span></p>
         <p class="label-highscore">
           🥇 Najwyższy wynik: <span class="highscore">0</span>
         </p>

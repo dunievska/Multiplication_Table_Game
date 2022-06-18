@@ -69,6 +69,12 @@ main {
   width: 20rem;
 }
 
-.message {
+.info-content {
   margin: 1rem;
+  text-align: center;
+}
+
+.message {
+  margin: 2rem;
+  font-size: x-large;
 }

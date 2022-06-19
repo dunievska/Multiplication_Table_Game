@@ -1,82 +1,77 @@
-let firstNumber = Math.trunc(Math.random() * 10) + 1;
-let secondNumber = Math.trunc(Math.random() * 10) + 1;
+let firstNumber = drawNumber1to10();
+let secondNumber = drawNumber1to10();
 let score = 20;
 let row = 0;
 let result = calcMultiplication(firstNumber, secondNumber);
 
+function calcMultiplication(a, b) {
+  return a * b;
+}
+
+function displayMultiplication(a, b) {
+  document.querySelector(".numbers").textContent = `${a} x ${b}`;
+}
+
+function displayMessage(message) {
+  document.querySelector(".message").textContent = message;
+}
+
+function drawNumber1to10() {
+  const number = Math.trunc(Math.random() * 10) + 1;
+  return number;
+}
+
+function displayScore(score) {
+  document.querySelector(".score").textContent = score;
+}
+
 function startGame() {
   // first game
   if (document.querySelector(".play").textContent === "Start!") {
-    document.querySelector(
-      ".numbers"
-    ).textContent = `${firstNumber} x ${secondNumber}`;
+    displayMultiplication(firstNumber, secondNumber);
     document.querySelector(".play").textContent = "Nowe działanie";
     document.querySelector("main").style.display = "flex";
-    document.querySelector(".score").textContent = score;
+    displayScore(score);
   }
   // next game
   else if (document.querySelector(".play").textContent === "Nowe działanie") {
-    firstNumber = Math.trunc(Math.random() * 10) + 1;
-    secondNumber = Math.trunc(Math.random() * 10) + 1;
+    firstNumber = drawNumber1to10();
+    secondNumber = drawNumber1to10();
     result = calcMultiplication(firstNumber, secondNumber);
-    document.querySelector(
-      ".numbers"
-    ).textContent = `${firstNumber} x ${secondNumber}`;
+    displayMultiplication(firstNumber, secondNumber);
     document.querySelector(".answer").value = "";
   }
-}
-
-function calcMultiplication(a, b) {
-  return a * b;
 }
 
 function checkAnswer() {
   const answer = document.querySelector(".answer").value;
   // no answer
   if (!answer) {
-    document.querySelector(".message").textContent = "Nie wpisałeś odpowiedzi";
+    displayMessage("Nie wpisałeś odpowiedzi");
   }
-  // answer is to high
-  else if (Number(answer) > result) {
+  // answer is wrong
+  else if (Number(answer) !== result) {
     if (score > 1) {
-      document.querySelector(
-        ".message"
-      ).textContent = `${firstNumber} x ${secondNumber} to mniej niż ${answer}. Policz jeszcze raz!`;
+      displayMessage(
+        Number(answer) > result
+          ? `${firstNumber} x ${secondNumber} to mniej niż ${answer}. Policz jeszcze raz!`
+          : `${firstNumber} x ${secondNumber} to więcej niż ${answer}. Policz jeszcze raz!`
+      );
       score--;
-      document.querySelector(".score").textContent = score;
+      displayScore(score);
       row = 0;
       document.querySelector(".row").textContent = row;
     } else {
-      document.querySelector(
-        ".message"
-      ).textContent = `Straciłeś wszystkie punkty! Zagraj jeszcze raz!`;
-      document.querySelector(".score").textContent = 0;
+      displayMessage(`Straciłeś wszystkie punkty! Zagraj jeszcze raz!`);
+      score = 0;
+      displayScore(score);
     }
   }
-  //answer is to low
-  else if (Number(answer) < result) {
-    if (score > 1) {
-      document.querySelector(
-        ".message"
-      ).textContent = `${firstNumber} x ${secondNumber} to więcej niż ${answer}. Policz jeszcze raz!`;
-      score--;
-      document.querySelector(".score").textContent = score;
-      row = 0;
-      document.querySelector(".row").textContent = row;
-    } else {
-      document.querySelector(
-        ".message"
-      ).textContent = `Straciłeś wszystkie punkty! Zagraj jeszcze raz!`;
-      document.querySelector(".score").textContent = 0;
-    }
-  }
-  // player win
+  // answer is right
   else if (Number(answer) === result) {
-    document.querySelector(
-      ".message"
-    ).textContent = `Doskonale! ${firstNumber} x ${secondNumber} to ${result}.`;
+    displayMessage(`Doskonale! ${firstNumber} x ${secondNumber} to ${result}.`);
     score++;
-    document.querySelector(".score").textContent = score;
+    displayScore(score);
     row++;
     document.querySelector(".row").textContent = row;
   }

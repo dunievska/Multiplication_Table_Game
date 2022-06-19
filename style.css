@@ -67,6 +67,7 @@ main {
   text-align: center;
   display: block;
   width: 20rem;
+  cursor: auto;
 }
 
 .info-content {

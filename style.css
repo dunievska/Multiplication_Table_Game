@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+html {
+  font-size: 62.5%;
+}
+
 /*
 blue: #138DC1;
 pink: #f40029;
@@ -15,23 +19,48 @@ body {
   font-family: "Roboto", sans-serif;
   color: #290f0d;
   line-height: 2rem;
+  height: 100vh;
+  padding: 2rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 1.9 rem;
+  font-weight: 500;
+}
+
+.login {
+  display: flex;
+}
+
+.login-name {
+  text-align: center;
+  padding: 0.5rem 2rem;
+  margin-right: 1rem;
+}
+
+.login-btn {
 }
 
 header {
   max-height: 15vh;
   padding: 2rem;
-  font-size: 62.5%;
   text-align: center;
 }
-
 main {
   max-height: 85vh;
   font-size: large;
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
 }
+
 .instruction {
   margin-bottom: 1.5rem;
 }

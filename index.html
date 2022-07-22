@@ -8,34 +8,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap"
       rel="stylesheet"
     />
   </head>
 
   <body>
+    <nav>
+      <p class="welcome">Podaj swoje imię by zacząć</p>
+      <form class="login">
+        <input type="text" placeholder="Imię" class="login-name" />
+        <button class="login-btn">&rarr;</button>
+      </form>
+    </nav>
+
     <header>
-      <p class="instruction">
-        Wpisz wynik mnożenia w odpowiednie pole. Sprawdź wynik. Za każdy błąd
-        tracisz jeden punkt. Gra kończy się, gdy stracisz wszystkie punkty.
-      </p>
       <button class="btn play">Start!</button>
     </header>
-    <main>
-      <section class="multiplication-content">
+    <main class="app">
+      <div class="choose">
+
+      </div>
+      <div" class="multiplication-content">
         <h1>Ile to jest?</h1>
         <p class="numbers">? x ?</p>
         <p class="text">to</p>
         <input type="number" min="1" max="100" class="answer" />
         <button class="btn check">Sprawdź!</button>
-      </section>
-      <section class="info-content">
+      </div>
+      <div class="info-content">
         <p class="message">Wpisz odpowiedź...</p>
         <p class="label-score">💯 Twój wynik:<span class="score"></span></p>
         <p class="label-row">
           🥇 Poprawne odpowiedzi pod rząd: <span class="row">0</span>
         </p>
-      </section>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>
